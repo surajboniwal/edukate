@@ -34,8 +34,8 @@ class NavigationScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             BottomNavItem(index: 0, icon: Icons.home_outlined),
-            BottomNavItem(index: 2, icon: Icons.explore_outlined),
-            BottomNavItem(index: 1, icon: Icons.bookmark_outline),
+            BottomNavItem(index: 1, icon: Icons.explore_outlined),
+            BottomNavItem(index: 2, icon: Icons.bookmark_outline),
             // BottomNavItem(index: 3, icon: Icons.chat_bubble_outline),
             // BottomNavItem(index: 4, icon: Icons.settings_outlined),
           ],
