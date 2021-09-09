@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_course/data/models/course.dart';
 import 'package:flutter_course/data/models/course_with_category.dart';
 import 'package:flutter_course/data/repositories/course_repository.dart';
@@ -14,11 +16,18 @@ class CourseProvider extends StateNotifier<List<CourseWithCategory>?> {
 
   static int selectedIndex = 0;
 
+  int? randomCourseIndex;
+
   void getCourses() async {
     List<CourseWithCategory> courses = await read(CourseRepository.provider).fetchCourses();
     state = courses;
     read(SelectedCourseProvider.provider.notifier).setSelectedCourses(state![0].courses);
+    if (randomCourseIndex == null) {
+      randomCourseIndex = Random().nextInt(courses.length);
+    }
   }
+
+  CourseWithCategory get randomCourse => state![randomCourseIndex ?? 0];
 
   void changeSelectedIndex(int index) {
     selectedIndex = index;
